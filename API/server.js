@@ -5,8 +5,8 @@ const categoryRouter = require('./routers/categories');
 const mongoose = require('mongoose');
 const Product = require('./Model/product'); 
 const Category = require('./Model/category');
-const user_router = require('./routers/user');
 const cart_router = require('./routers/cart')
+const user_router = require('./routers/user');
 
 const app = express();
 app.use(cors());
@@ -29,6 +29,7 @@ const connectDB = async () => {
 app.use('/user', user_router);
 app.use('/categories', categoryRouter)
 app.use('/products', router)
+app.use('/cart', cart_router)
 
 // GET: Lấy tất cả sản phẩm
 app.get('/products', async (req, res) => {
